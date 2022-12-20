@@ -1,6 +1,6 @@
-import express from 'express';
-import morgan from 'morgan';
-
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
 
 // import { createRoles } from './libs/initialSetup'
 
@@ -10,26 +10,23 @@ import morgan from 'morgan';
 // import usersRoutes from './routes/user'
 // import movimientoRoutes from './routes/movimiento'
 
-
 // const cors = require('cors')
 // let corsOptions = {
 //     origin: 'trustedwebsite.com' // Compliant
 //   };
 const app = express();
-app.set("port",4000);
-
+app.set("port", 4000);
+app.use(cors());
 
 // app.disable("x-powered-by");
 // app.use(cors(corsOptions))
 // createRoles();
 app.use(morgan("dev"));
 // app.use(express.json());
-app.use('/api/productos',productosRoutes)
+app.use("/api/productos", () => {});
 // app.use('/api/categoria',categoriaRoutes)
 // app.use('/api/auth',auhtRoutes)
 // app.use('/api/users',usersRoutes)
 // app.use('/api/movimiento',movimientoRoutes)
-
-
 
 export default app;
