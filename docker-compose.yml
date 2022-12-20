@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   db:
-    image: mysql:8.0
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: 'logisnet'
@@ -16,5 +16,18 @@ services:
     volumes:
       - my_db:/var/lib/mysql
     
+  postgres_db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'admin'
+    ports:
+      - '5490:5432'
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+
 volumes:
+  postgres_db:
+    driver: local
   my_db:
