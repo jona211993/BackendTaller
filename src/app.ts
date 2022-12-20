@@ -14,6 +14,8 @@ import cors from "cors";
 // let corsOptions = {
 //     origin: 'trustedwebsite.com' // Compliant
 //   };
+
+
 const app = express();
 app.set("port", 4000);
 app.use(cors());

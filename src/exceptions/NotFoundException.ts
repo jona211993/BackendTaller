@@ -1,4 +1,6 @@
 export class NotFoundException extends Error{
+    private status: number
+
     constructor(){
         super()
         this.status = 404
