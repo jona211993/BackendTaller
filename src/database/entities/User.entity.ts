@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -10,7 +11,7 @@ import {
 import { RoleEntity } from "./Role.entity";
 
 @Entity("usuarios")
-export class UserEntity {
+export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id_usuario: number;
 
@@ -56,7 +57,9 @@ export class UserEntity {
   })
   motivo: string;
 
-  @Column()
+  @Column({
+    default: false
+  })
   eliminado: boolean;
 
   @CreateDateColumn()
